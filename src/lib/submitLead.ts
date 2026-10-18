@@ -109,13 +109,12 @@ async function sendToFormspree(endpoint: string, payload: LeadPayload): Promise<
 }
 
 async function sendToAirtable(webhookUrl: string, payload: LeadPayload): Promise<void> {
-  // Los webhooks de Airtable no devuelven cabeceras CORS, así que la petición se envía
-  // como "simple request" (text/plain + no-cors). Airtable parsea igualmente el cuerpo JSON.
+  // Los webhooks de Airtable no devuelven cabeceras CORS y solo aceptan JSON o formulario.
+  // Se envía como formulario (application/x-www-form-urlencoded), que el navegador permite en no-cors.
   await fetch(webhookUrl, {
     method: 'POST',
     mode: 'no-cors',
-    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-    body: JSON.stringify(payload),
+    body: new URLSearchParams(payload as unknown as Record<string, string>),
   });
 }
 

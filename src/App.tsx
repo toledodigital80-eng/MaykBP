@@ -113,12 +113,6 @@ export default function App() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <div className="text-right">
-              <span className="text-[10px] text-slate-400 block font-medium">Asesoría Directa España</span>
-              <span className="text-xs font-bold text-slate-700 font-mono flex items-center gap-1">
-                <Phone className="h-3 w-3 text-agro-600" /> +34 900 839 122
-              </span>
-            </div>
             <button 
               onClick={() => scrollToSection('autodiagnostico')}
               className="bg-agro-900 hover:bg-agro-800 text-white px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-sm hover:shadow hover:-translate-y-0.5 cursor-pointer"
@@ -828,7 +822,7 @@ export default function App() {
       <footer className="bg-slate-950 text-slate-400 py-12 px-4 border-t border-slate-900">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           
-          <div className="md:col-span-5 space-y-3">
+          <div className="md:col-span-8 space-y-3">
             <span className="font-extrabold text-lg text-white font-display uppercase tracking-tight">
               AGROFLOW<span className="text-agro-500 font-bold">™</span>
             </span>
@@ -837,16 +831,8 @@ export default function App() {
             </p>
           </div>
 
-          <div className="md:col-span-4 space-y-2">
-            <span className="text-xs font-mono font-bold text-slate-200 uppercase tracking-widest block">DIRECCIÓN TÉCNICA</span>
-            <p className="text-xs text-slate-400">
-              Calle Recinto de la Ferial, S/N, Planta 2, Talavera de la Reina, Toledo, España.
-            </p>
-            <p className="text-xs font-mono text-slate-500">Reg. Industrial Agroalimentario Nº 45-2022-T</p>
-          </div>
-
-          <div className="md:col-span-3 text-left md:text-right space-y-3">
-            <span className="text-xs font-semibold text-slate-300 block">© 2026 AGROFLOW S.L. Todos los derechos reservados.</span>
+          <div className="md:col-span-4 text-left md:text-right space-y-3">
+            <span className="text-xs font-semibold text-slate-300 block">© 2026 AGROFLOW™. Todos los derechos reservados.</span>
             <div className="flex justify-start md:justify-end gap-3 text-xs">
               <a href="#aviso" className="hover:text-white transition-colors">Aviso Legal</a>
               <span>·</span>

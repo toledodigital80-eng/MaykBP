@@ -151,7 +151,7 @@ export default function DiagnosticWizard({ initialEstimatedLostRevenue, onSubmit
       setSubmitted(true);
       onSubmitSuccess(lead);
     } catch {
-      setSubmitError('No hemos podido enviar su solicitud. Inténtelo de nuevo en unos segundos o llámenos al +34 900 839 122.');
+      setSubmitError('No hemos podido enviar su solicitud. Inténtelo de nuevo en unos segundos.');
     } finally {
       setSubmitting(false);
     }

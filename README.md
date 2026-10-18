@@ -44,6 +44,10 @@ Datos que envía la landing y dónde acaban:
 | `reto`, `utm_source`, `utm_campaign` | Notas (puntuación, nivel, respuestas y fuga estimada) |
 | —                 | Fuente Lead = "Web / Formulario", Estado = "Nuevo", Origen del Diagnóstico = "Web / Landing page", Consentimiento datos = ✓, Fecha Entrada = fecha de ejecución (fijos en la automatización) |
 
+Después de crear el registro, la misma automatización envía un email de aviso a
+`toledodigital80@gmail.com` con los datos principales del lead y un enlace al registro
+(responder al email escribe directamente al lead).
+
 El webhook solo acepta `application/json` o `application/x-www-form-urlencoded`; la landing envía
 formulario (`URLSearchParams`) porque es el único de los dos que el navegador permite sin CORS.
 

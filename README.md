@@ -39,12 +39,13 @@ Datos que envía la landing y dónde acaban:
 | `email`           | Email          |
 | `provincia`       | Provincia      |
 | `tipo`            | Sector (valor exacto de la opción) |
+| `cargo`           | Cargo          |
+| `canal`           | Canal de Seguimiento Preferido |
 | `reto`, `utm_source`, `utm_campaign` | Notas (puntuación, nivel, respuestas y fuga estimada) |
-| —                 | Fuente Lead = "Web / Formulario", Estado = "Nuevo", Fecha Entrada = fecha de ejecución (fijos en la automatización) |
+| —                 | Fuente Lead = "Web / Formulario", Estado = "Nuevo", Origen del Diagnóstico = "Web / Landing page", Consentimiento datos = ✓, Fecha Entrada = fecha de ejecución (fijos en la automatización) |
 
-También se envían `cargo`, `canal`, `origen`, `utm_medium`, `pagina`, `consentimiento` y `fecha`;
-si quieres guardarlos (Cargo, Canal de Seguimiento Preferido, Origen del Diagnóstico, Consentimiento datos)
-añádelos en la acción *Create record* de la automatización.
+El webhook solo acepta `application/json` o `application/x-www-form-urlencoded`; la landing envía
+formulario (`URLSearchParams`) porque es el único de los dos que el navegador permite sin CORS.
 
 ## 3. Publicar en GitHub Pages
 

@@ -45,7 +45,7 @@ Datos que envía la landing y dónde acaban:
 | —                 | Fuente Lead = "Web / Formulario", Estado = "Nuevo", Origen del Diagnóstico = "Web / Landing page", Consentimiento datos = ✓, Fecha Entrada = fecha de ejecución (fijos en la automatización) |
 
 Después de crear el registro, la misma automatización envía un email de aviso a
-`toledodigital80@gmail.com` con los datos principales del lead y un enlace al registro
+`espinosatoledom99@gmail.com` (el email de la cuenta de Airtable; Airtable solo envía a colaboradores de la base) con los datos principales del lead y un enlace al registro
 (responder al email escribe directamente al lead).
 
 El webhook solo acepta `application/json` o `application/x-www-form-urlencoded`; la landing envía

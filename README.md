@@ -26,41 +26,25 @@ Si no defines ninguna variable, el formulario funciona igual pero solo muestra e
 
 ## 2. Airtable (CRM)
 
-En la base **AGROFLOW CRM** → **Automations** → *Create automation*:
+La base **AGROFLOW CRM** ya tiene la automatización **"Landing AGROFLOW → Nuevo Lead"**
+(*When webhook received* → *Create record* en **Leads**). Su URL es la que va en `VITE_AIRTABLE_WEBHOOK_URL`.
 
-1. **Trigger:** *When webhook received*. Copia la URL → variable `VITE_AIRTABLE_WEBHOOK_URL`.
-2. Envía un lead de prueba desde la web (o con el `curl` de abajo) y pulsa *Test trigger* para que
-   Airtable detecte la estructura.
-3. **Acción:** *Create record* en la tabla **Leads** con este mapeo:
+Datos que envía la landing y dónde acaban:
 
-| Campo en Leads                     | Valor del webhook |
-|------------------------------------|-------------------|
-| Empresa                            | `empresa`         |
-| Contacto                           | `contacto`        |
-| Cargo                              | `cargo`           |
-| Teléfono                           | `telefono`        |
-| Email                              | `email`           |
-| Provincia                          | `provincia`       |
-| Sector                             | `sector`          |
-| Fuente Lead                        | `fuente` (siempre "Web / Formulario") |
-| Origen del Diagnóstico             | `origen` (siempre "Web / Landing page") |
-| Estado                             | `estado` (siempre "Nuevo") |
-| Fecha Entrada                      | `fecha` (AAAA-MM-DD) |
-| Canal de Seguimiento Preferido     | `canal`           |
-| Consentimiento datos               | `consentimiento`  |
-| Problema / Necesidad Comercial     | `problema` (puntuación, nivel, respuestas y fuga estimada) |
+| Clave del webhook | Campo en Leads |
+|-------------------|----------------|
+| `empresa`         | Empresa        |
+| `nombre`          | Contacto       |
+| `telefono`        | Teléfono       |
+| `email`           | Email          |
+| `provincia`       | Provincia      |
+| `tipo`            | Sector (valor exacto de la opción) |
+| `reto`, `utm_source`, `utm_campaign` | Notas (puntuación, nivel, respuestas y fuga estimada) |
+| —                 | Fuente Lead = "Web / Formulario", Estado = "Nuevo", Fecha Entrada = fecha de ejecución (fijos en la automatización) |
 
-4. Activa la automatización.
-
-Prueba manual del webhook:
-
-```bash
-curl -X POST "$VITE_AIRTABLE_WEBHOOK_URL" -H "Content-Type: application/json" -d '{
-  "empresa":"Prueba S.L.","contacto":"Test","cargo":"Gerente / Socio","telefono":"+34600000000",
-  "email":"test@example.com","provincia":"Toledo","sector":"Riego","fuente":"Web / Formulario",
-  "origen":"Web / Landing page","estado":"Nuevo","fecha":"2026-10-18","canal":"WhatsApp",
-  "consentimiento":true,"problema":"Prueba"}'
-```
+También se envían `cargo`, `canal`, `origen`, `utm_medium`, `pagina`, `consentimiento` y `fecha`;
+si quieres guardarlos (Cargo, Canal de Seguimiento Preferido, Origen del Diagnóstico, Consentimiento datos)
+añádelos en la acción *Create record* de la automatización.
 
 ## 3. Publicar en GitHub Pages
 

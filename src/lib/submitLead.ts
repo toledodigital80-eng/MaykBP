@@ -24,22 +24,38 @@ export const PROVINCES = [
   'Tarragona', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza',
 ];
 
-/** Payload plano cuyas claves se mapean 1:1 con los campos de la tabla Leads. */
+/**
+ * Payload plano. Las claves coinciden con las que espera la automatización de Airtable
+ * "Landing AGROFLOW → Nuevo Lead" (webhook → Create record en la tabla Leads).
+ */
 export interface LeadPayload {
+  nombre: string;
   empresa: string;
-  contacto: string;
   cargo: string;
+  /** Valor exacto de la opción "Sector" en Leads */
+  tipo: string;
   telefono: string;
   email: string;
   provincia: string;
-  sector: string;
-  fuente: string;
-  origen: string;
-  estado: string;
-  fecha: string;
   canal: string;
-  consentimiento: boolean;
-  problema: string;
+  /** Resumen del autodiagnóstico (va a "Notas" como reto comercial) */
+  reto: string;
+  origen: string;
+  utm_source: string;
+  utm_medium: string;
+  utm_campaign: string;
+  pagina: string;
+  consentimiento: string;
+  fecha: string;
+}
+
+function getUtmParams(): Pick<LeadPayload, 'utm_source' | 'utm_medium' | 'utm_campaign'> {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utm_source: params.get('utm_source') ?? '',
+    utm_medium: params.get('utm_medium') ?? '',
+    utm_campaign: params.get('utm_campaign') ?? '',
+  };
 }
 
 function buildDiagnosticSummary(lead: LeadSubmission): string {
@@ -62,20 +78,20 @@ function buildDiagnosticSummary(lead: LeadSubmission): string {
 
 export function buildLeadPayload(lead: LeadSubmission): LeadPayload {
   return {
+    nombre: lead.name.trim(),
     empresa: lead.company.trim(),
-    contacto: lead.name.trim(),
     cargo: lead.role,
+    tipo: SECTOR_LABELS[lead.sector],
     telefono: lead.phone.trim(),
     email: lead.email.trim(),
     provincia: lead.province ?? '',
-    sector: SECTOR_LABELS[lead.sector],
-    fuente: 'Web / Formulario',
-    origen: 'Web / Landing page',
-    estado: 'Nuevo',
-    fecha: new Date().toISOString().slice(0, 10),
     canal: lead.followUpChannel ?? '',
-    consentimiento: lead.consent,
-    problema: buildDiagnosticSummary(lead),
+    reto: buildDiagnosticSummary(lead),
+    origen: 'Web / Landing page',
+    ...getUtmParams(),
+    pagina: window.location.href,
+    consentimiento: lead.consent ? 'sí' : 'no',
+    fecha: new Date().toISOString(),
   };
 }
 

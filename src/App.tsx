@@ -834,7 +834,7 @@ export default function App() {
           <div className="md:col-span-4 text-left md:text-right space-y-3">
             <span className="text-xs font-semibold text-slate-300 block">© 2026 AGROFLOW™. Todos los derechos reservados.</span>
             <div className="flex justify-start md:justify-end gap-3 text-xs">
-              <a href="#aviso" className="hover:text-white transition-colors">Aviso Legal</a>
+              <a href="#aviso-legal" className="hover:text-white transition-colors">Aviso Legal</a>
               <span>·</span>
               <a href="#privacidad" className="hover:text-white transition-colors">Política de Privacidad</a>
             </div>

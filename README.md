@@ -50,8 +50,9 @@ formulario (`URLSearchParams`) porque es el único de los dos que el navegador p
 ## 3. Publicar en GitHub Pages
 
 1. En el repositorio: **Settings → Pages → Source: GitHub Actions**.
-2. **Settings → Secrets and variables → Actions → Variables**: crea `VITE_FORMSPREE_ENDPOINT` y
-   `VITE_AIRTABLE_WEBHOOK_URL`.
+2. **Settings → Secrets and variables → Actions → Variables**: crea `VITE_FORMSPREE_ENDPOINT`.
+   La URL del webhook de Airtable ya viene configurada en `.github/workflows/deploy.yml`
+   (solo hace falta la variable `VITE_AIRTABLE_WEBHOOK_URL` si quieres cambiarla).
 3. Haz push a `main` (o ejecuta el workflow *Deploy to GitHub Pages* a mano). La web quedará en
    `https://<usuario>.github.io/<repositorio>/`.
 

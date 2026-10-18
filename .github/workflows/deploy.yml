@@ -28,7 +28,8 @@ jobs:
       - run: npm run build
         env:
           VITE_FORMSPREE_ENDPOINT: ${{ vars.VITE_FORMSPREE_ENDPOINT }}
-          VITE_AIRTABLE_WEBHOOK_URL: ${{ vars.VITE_AIRTABLE_WEBHOOK_URL }}
+          # No es secreta: acaba en el JS público. La variable de GitHub, si existe, tiene prioridad.
+          VITE_AIRTABLE_WEBHOOK_URL: ${{ vars.VITE_AIRTABLE_WEBHOOK_URL || 'https://hooks.airtable.com/workflows/v1/genericWebhook/appXyHBvh2D87qmQE/wfle3Jdu3AsN17hrN/wtrMJE4aeB9zT2T7S' }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

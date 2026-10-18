@@ -60,5 +60,16 @@ formulario (`URLSearchParams`) porque es el único de los dos que el navegador p
 3. Haz push a `main` (o ejecuta el workflow *Deploy to GitHub Pages* a mano). La web quedará en
    `https://<usuario>.github.io/<repositorio>/`.
 
+### Dominio propio (www.agroflowes.com)
+
+1. En el proveedor del dominio, crea un registro DNS **CNAME** con nombre `www` y valor
+   `toledodigital80-eng.github.io`.
+2. Para que `agroflowes.com` (sin www) también funcione, crea cuatro registros **A** en `@` con
+   `185.199.108.153`, `185.199.109.153`, `185.199.110.153` y `185.199.111.153`.
+3. En **Settings → Pages → Custom domain** escribe `www.agroflowes.com`, guarda y, cuando el
+   certificado esté listo, marca **Enforce HTTPS**.
+
+Al desplegar con GitHub Actions no hace falta archivo `CNAME`: el dominio se configura solo en Settings.
+
 > Nota: al ser una web estática, ambas URLs son visibles en el código del navegador. No dan acceso
 > de lectura a tu base; como mucho permiten crear leads, por eso el formulario incluye un honeypot anti-spam.

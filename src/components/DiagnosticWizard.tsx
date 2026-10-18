@@ -4,6 +4,7 @@ import { Check, ChevronLeft, Calendar, Info, ShieldCheck, Milestone, AlertTriang
 import { DIAGNOSTIC_QUESTIONS } from '../data';
 import { LeadSubmission, CompanySector, FollowUpChannel } from '../types';
 import { submitLead, PROVINCES } from '../lib/submitLead';
+import { TITULAR } from '../legal/titular';
 
 interface DiagnosticWizardProps {
   initialEstimatedLostRevenue?: number;
@@ -484,9 +485,15 @@ export default function DiagnosticWizard({ initialEstimatedLostRevenue, onSubmit
                           className="mt-0.5 h-4 w-4 accent-agro-700 cursor-pointer"
                         />
                         <span>
-                          Acepto la <a href="#privacidad" className="underline hover:text-agro-700">política de privacidad</a> y que AGROFLOW contacte conmigo para realizar el diagnóstico comercial. *
+                          Acepto la <a href="#privacidad" target="_blank" rel="noopener" className="underline hover:text-agro-700">política de privacidad</a> y que AGROFLOW contacte conmigo para realizar el diagnóstico comercial. *
                         </span>
                       </label>
+
+                      {/* Información básica sobre protección de datos (art. 11 LOPDGDD) */}
+                      <p className="text-[10px] leading-relaxed text-slate-500 bg-white border border-slate-200 rounded-md p-2.5">
+                        <strong>Responsable:</strong> {TITULAR.nombre}. <strong>Finalidad:</strong> atender su solicitud de diagnóstico y contactar con usted. <strong>Legitimación:</strong> su consentimiento. <strong>Destinatarios:</strong> no se ceden datos a terceros; Airtable los almacena como encargado del tratamiento. <strong>Derechos:</strong> acceso, rectificación, supresión y otros, como se explica en la{' '}
+                        <a href="#privacidad" target="_blank" rel="noopener" className="underline hover:text-agro-700">política de privacidad</a>.
+                      </p>
 
                       {submitError && (
                         <div role="alert" className="flex items-start gap-2 text-xs text-rose-700 bg-rose-50 border border-rose-200 rounded-md p-3">
@@ -508,7 +515,7 @@ export default function DiagnosticWizard({ initialEstimatedLostRevenue, onSubmit
 
                       <div className="flex items-center gap-2 justify-center text-[10px] text-slate-400 pt-1">
                         <ShieldCheck className="h-3.5 w-3.5 text-agro-500" />
-                        <span>Cumplimiento RGPD. Sus datos están 100% seguros y nunca serán cedidos.</span>
+                        <span>Tratamos sus datos conforme al RGPD.</span>
                       </div>
                     </form>
                   </div>

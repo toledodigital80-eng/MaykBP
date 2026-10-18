@@ -11,7 +11,7 @@ export default function AvisoLegal() {
       </p>
       <ul>
         <li><strong>Titular:</strong> {TITULAR.nombre} (empresario individual / autónomo), que opera bajo la marca comercial {TITULAR.marca}.</li>
-        <li><strong>NIF:</strong> {TITULAR.nif}</li>
+        <li><strong>NIE:</strong> {TITULAR.nif}</li>
         <li><strong>Domicilio:</strong> {TITULAR.domicilio}</li>
         <li><strong>Correo electrónico:</strong> <a href={`mailto:${TITULAR.email}`}>{TITULAR.email}</a></li>
         <li><strong>Actividad:</strong> {TITULAR.actividad}.</li>

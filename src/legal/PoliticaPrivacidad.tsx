@@ -13,7 +13,7 @@ export default function PoliticaPrivacidad() {
       <h2>1. Responsable del tratamiento</h2>
       <ul>
         <li><strong>Responsable:</strong> {TITULAR.nombre} ({TITULAR.marca})</li>
-        <li><strong>NIF:</strong> {TITULAR.nif}</li>
+        <li><strong>NIE:</strong> {TITULAR.nif}</li>
         <li><strong>Domicilio:</strong> {TITULAR.domicilio}</li>
         <li><strong>Correo electrónico:</strong> <a href={`mailto:${TITULAR.email}`}>{TITULAR.email}</a></li>
       </ul>

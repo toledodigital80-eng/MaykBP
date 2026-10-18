@@ -8,6 +8,6 @@ export const TITULAR = {
   email: 'espinosatoledom99@gmail.com',
   marca: 'AGROFLOW™',
   actividad: 'Consultoría comercial y automatización de procesos de venta para empresas del sector agrícola',
-  web: 'https://toledodigital80-eng.github.io/MaykBP/',
+  web: 'https://www.agroflowes.com/',
   ultimaActualizacion: '18 de octubre de 2026',
 };

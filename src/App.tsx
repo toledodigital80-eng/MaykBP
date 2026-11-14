@@ -35,6 +35,8 @@ import { LeadSubmission } from './types';
 import Calculator from './components/Calculator';
 import DiagnosticWizard from './components/DiagnosticWizard';
 import AgroflowDashboardPreview from './components/AgroflowDashboardPreview';
+import WhatsAppButton, { whatsappUrl } from './components/WhatsAppButton';
+import { TITULAR } from './legal/titular';
 import heroImage from './assets/images/agroflow_hero_banner_1779466437412.png';
 
 export default function App() {
@@ -66,7 +68,7 @@ export default function App() {
   const handleCalculatorAction = (lostVal: number) => {
     setEstimatedLostCost(lostVal);
     scrollToSection('autodiagnostico');
-    showToast(`Fuga de ${lostVal.toLocaleString('es-ES')}€ calculada. Rellene el autodiagnóstico comercial.`);
+    showToast(`Estimación: ${lostVal.toLocaleString('es-ES')} € al año. Complete el autodiagnóstico para revisarlo con Maykel.`);
   };
 
   return (
@@ -98,7 +100,7 @@ export default function App() {
                 AGRO<span className="text-agro-600 font-bold">FLOW</span>™
               </span>
               <span className="text-[10px] text-slate-500 tracking-wider font-semibold uppercase block -mt-0.5">
-                Ingeniería Comercial Agrícola
+                por {TITULAR.nombre}
               </span>
             </div>
           </div>
@@ -107,12 +109,20 @@ export default function App() {
           <nav className="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
             <button onClick={() => scrollToSection('problematica')} className="hover:text-agro-700 transition-colors cursor-pointer">El Problema</button>
             <button onClick={() => scrollToSection('metodo')} className="hover:text-agro-700 transition-colors cursor-pointer">El Método</button>
-            <button onClick={() => scrollToSection('beneficios')} className="hover:text-agro-700 transition-colors cursor-pointer">Resultados</button>
-            <button onClick={() => scrollToSection('casos')} className="hover:text-agro-700 transition-colors cursor-pointer">Casos de Éxito</button>
+            <button onClick={() => scrollToSection('beneficios')} className="hover:text-agro-700 transition-colors cursor-pointer">Beneficios</button>
+            <button onClick={() => scrollToSection('casos')} className="hover:text-agro-700 transition-colors cursor-pointer">Ejemplos</button>
             <button onClick={() => scrollToSection('faq')} className="hover:text-agro-700 transition-colors cursor-pointer">Preguntas</button>
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
+            <a
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-agro-800 hover:text-agro-950 font-mono"
+            >
+              WhatsApp {TITULAR.telefono}
+            </a>
             <button 
               onClick={() => scrollToSection('autodiagnostico')}
               className="bg-agro-900 hover:bg-agro-800 text-white px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-sm hover:shadow hover:-translate-y-0.5 cursor-pointer"
@@ -143,8 +153,8 @@ export default function App() {
               <div className="px-4 py-5 space-y-3 flex flex-col">
                 <button onClick={() => scrollToSection('problematica')} className="text-left font-semibold text-slate-700 py-1.5 border-b border-slate-100 hover:text-agro-600">El Problema de Base</button>
                 <button onClick={() => scrollToSection('metodo')} className="text-left font-semibold text-slate-700 py-1.5 border-b border-slate-100 hover:text-agro-600">El Método de 5 Fases</button>
-                <button onClick={() => scrollToSection('beneficios')} className="text-left font-semibold text-slate-700 py-1.5 border-b border-slate-100 hover:text-agro-600">Resultados Prácticos</button>
-                <button onClick={() => scrollToSection('casos')} className="text-left font-semibold text-slate-700 py-1.5 border-b border-slate-100 hover:text-agro-600">Casos de Uso Reales</button>
+                <button onClick={() => scrollToSection('beneficios')} className="text-left font-semibold text-slate-700 py-1.5 border-b border-slate-100 hover:text-agro-600">Beneficios</button>
+                <button onClick={() => scrollToSection('casos')} className="text-left font-semibold text-slate-700 py-1.5 border-b border-slate-100 hover:text-agro-600">Ejemplos del sector</button>
                 <button onClick={() => scrollToSection('faq')} className="text-left font-semibold text-slate-700 py-1.5 border-b border-slate-100 hover:text-agro-600">Preguntas Frecuentes</button>
                 <button 
                   onClick={() => scrollToSection('autodiagnostico')}
@@ -169,7 +179,7 @@ export default function App() {
           <div className="lg:col-span-7 space-y-6 md:space-y-8">
             <div className="inline-flex items-center gap-2 bg-agro-800/80 border border-agro-700/60 px-3 py-1.5 rounded-full text-[11px] md:text-xs text-agro-200 font-mono tracking-wider font-semibold uppercase">
               <Tractor className="h-3.5 w-3.5 text-harvest-400" />
-              <span>Sistemas de Organización Comercial Especializados en el Sector Agro</span>
+              <span>Captación y seguimiento comercial para empresas agrícolas</span>
             </div>
 
             <div className="space-y-4">
@@ -180,7 +190,7 @@ export default function App() {
                 </span>
               </h1>
               <p className="text-slate-300 text-base md:text-lg max-w-xl leading-relaxed">
-                Ayudamos a fabricantes de maquinaria, fitosanitarios, biofertilizantes e instaladoras de riego españolas a <strong>frenar la pérdida de oportunidades</strong> y estructurar un seguimiento de ventas automático sin complicar la vida a sus delegados de zona.
+                Soy {TITULAR.nombre}, Ingeniero Agrónomo especializado en marketing digital e IA. Ayudo a empresas de maquinaria, distribución, fitosanitarios, biofertilizantes y riego a <strong>generar más oportunidades comerciales</strong> con sistemas de captación, seguimiento, automatización e inteligencia artificial, sin complicar el trabajo de sus comerciales.
               </p>
             </div>
 
@@ -193,7 +203,7 @@ export default function App() {
                 <span className="text-harvest-400 font-black">✔</span> No vendemos redes sociales
               </div>
               <div className="flex items-center gap-2.5 bg-agro-800/40 border border-agro-700/30 p-3 rounded-lg">
-                <span className="text-harvest-400 font-black">✔</span> No vendemos páginas web vacías
+                <span className="text-harvest-400 font-black">✔</span> Hablamos de ventas, no de software
               </div>
             </div>
 
@@ -209,7 +219,7 @@ export default function App() {
                 onClick={() => scrollToSection('calculadora')}
                 className="bg-agro-800 hover:bg-agro-750 text-white border border-agro-700 hover:border-agro-600 font-semibold px-6 py-3.5 rounded-xl transition-all text-center cursor-pointer text-sm flex items-center justify-center gap-2"
               >
-                <span>Mida su fuga en 60 segundos</span>
+                <span>Calcule sus ventas perdidas</span>
                 <ChevronDown className="h-4 w-4 text-agro-300" />
               </button>
             </div>
@@ -220,7 +230,7 @@ export default function App() {
               </span>
               <span>·</span>
               <span className="flex items-center gap-1">
-                <UserCheck className="h-3.5 w-3.5 text-harvest-400" /> Dirigido a Gerentes y Directores Comerciales
+                <UserCheck className="h-3.5 w-3.5 text-harvest-400" /> Para gerentes y directores comerciales
               </span>
             </div>
           </div>
@@ -231,13 +241,13 @@ export default function App() {
             <div className="relative bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
               <img 
                 src={heroImage} 
-                alt="Agroflow Smart Farming Business Control" 
+                alt="Seguimiento comercial para empresas agrícolas" 
                 className="w-full h-auto object-cover opacity-85 hover:scale-[1.02] transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/30 to-transparent flex flex-col justify-end p-5">
-                <p className="text-xs text-harvest-400 font-bold uppercase tracking-wider font-mono">Control de Campaña en Tiempo Real</p>
-                <span className="text-sm text-slate-200 mt-1 font-medium">«¿Sabía que el 30% de sus oportunidades agropecuarias mueren al no realizar una llamada simple el tercer día tras la feria?»</span>
+                <p className="text-xs text-harvest-400 font-bold uppercase tracking-wider font-mono">Cada presupuesto, con su seguimiento</p>
+                <span className="text-sm text-slate-200 mt-1 font-medium">«Muchas ventas no se pierden por el precio, sino porque nadie volvió a llamar a tiempo después de la feria.»</span>
               </div>
             </div>
           </div>
@@ -249,13 +259,13 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center space-y-3 mb-10">
             <span className="text-xs font-mono font-bold text-agro-700 bg-agro-100 px-3 py-1 rounded-full uppercase tracking-wider">
-              Diagnóstico Cuantitativo
+              Calculadora
             </span>
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 font-display">
-              ¿Cuánto dinero está costándole a su empresa la falta de seguimiento?
+              ¿Cuánto le cuesta la falta de seguimiento?
             </h2>
             <p className="text-slate-650 max-w-xl mx-auto text-sm md:text-base">
-              Modifique los mandos para estimar el total de presupuestos de maquinaria, bioestimulantes o riego que se están escapando cada año por falta de un proceso estructurado.
+              Elija su sector y ajuste los mandos para estimar cuántas ventas se escapan cada año por presupuestos que nadie vuelve a llamar.
             </p>
           </div>
 
@@ -274,13 +284,13 @@ export default function App() {
                 La Realidad del Sector Agrícola Español
               </span>
               <h2 className="text-3xl font-bold tracking-tight text-slate-900 font-display leading-tight">
-                El canal de ventas tradicional está colapsado por el papeleo de oficina y correos sin contestar
+                Las ventas se pierden entre papeles, correos sin contestar y chats de WhatsApp
               </h2>
               <p className="text-slate-650 text-base leading-relaxed">
-                Usted confía en la palabra de su equipo de campo. Son excelentes comerciales, con gran don de gentes, conocen perfectamente al distribuidor, al agrónomo de cooperativa y al gran dueño de finca. 
+                Su equipo de campo conoce al distribuidor, al técnico de la cooperativa y al agricultor. Son buenos comerciales y la confianza se gana en persona.
               </p>
               <p className="text-slate-650 text-base leading-relaxed">
-                Sin embargo, la carga diaria en época de campaña agrícola hace imposible que recuerden todo. En cada feria agrícola de primer nivel, en cada visita técnica, se capturan decenas de correos y teléfonos que terminan en cuadernos rústicos o sepultados bajo infinitos chats de WhatsApp.
+                Pero en plena campaña es imposible acordarse de todo. En cada feria y en cada visita se recogen contactos que acaban en una libreta o perdidos entre chats de WhatsApp.
               </p>
 
               <div className="bg-amber-50 border border-amber-200 p-5 rounded-xl space-y-2">
@@ -289,7 +299,7 @@ export default function App() {
                   <span className="font-bold text-sm">¿La consecuencia directa de esto?</span>
                 </div>
                 <p className="text-xs text-amber-800 leading-relaxed font-medium">
-                  Se presentan presupuestos cuantiosos para instalaciones de riego complejos o flotas de maquinaria. Nadie vuelve a llamar al cliente en los siguientes 15 días. El cliente, ante la falta de insistencia y atención, asume falta de seriedad o simplemente compra a la cooperativa de la competencia por inercia técnica.
+                  Se envía un presupuesto importante de riego o de maquinaria y nadie vuelve a llamar en las dos semanas siguientes. El cliente interpreta falta de interés y acaba comprando a la competencia.
                 </p>
               </div>
             </div>
@@ -304,27 +314,27 @@ export default function App() {
                 {
                   icon: <CheckSquare className="h-5 w-5 text-rose-500 mt-1" />,
                   title: 'Leads de Ferias e Interesados Perdidos',
-                  desc: 'Se invierte miles de euros en stands de ferias del sector (como FIMA o Expoagro). Los contactos se apuntan en cartulinas que acaban traspapeladas. Tres semanas después, nadie ha llamado a esos agricultores interesados.'
+                  desc: 'Se invierte en stands de ferias del sector como FIMA. Los contactos se apuntan en tarjetas que se traspapelan y, semanas después, nadie ha llamado a esos agricultores interesados.'
                 },
                 {
                   icon: <FileSpreadsheet className="h-5 w-5 text-rose-500 mt-1" />,
-                  desc: 'Si no hay un Excel central que todos usen, cada delegado tiene su cartera en su cabeza. Si el comercial se marcha a trabajar con un competidor de nutrición vegetal, su base comercial vuela con él.',
+                  desc: 'Sin un registro común, cada delegado lleva su cartera en la cabeza. Si se marcha a la competencia, sus clientes se van con él.',
                   title: 'Trazabilidad Comercial Inexistente'
                 },
                 {
                   icon: <Phone className="h-5 w-5 text-rose-500 mt-1" />,
                   title: 'Dependencia Excesiva del WhatsApp Personal',
-                  desc: 'Los presupuestos, acuerdos de descuento por volumen de compra y cotizaciones flotan en chats individuales sin ningún registro en la sede de la empresa.'
+                  desc: 'Presupuestos, descuentos y acuerdos quedan en chats personales, sin ningún registro en la empresa.'
                 },
                 {
                   icon: <TrendingDown className="h-5 w-5 text-rose-500 mt-1" />,
-                  title: 'Seguimiento de Ofertas inexistente o Descoordinado',
-                  desc: 'Se redacta una oferta técnica por correo y nunca más se insiste. No hay alertas que avisen al comercial: «Llama hoy al distribuidor de Cuenca, su oferta caduca mañana».'
+                  title: 'Ofertas sin seguimiento',
+                  desc: 'Se envía una oferta por correo y no se vuelve a insistir. Nadie avisa al comercial: «Llama hoy al distribuidor de Cuenca, su oferta caduca mañana».'
                 },
                 {
                   icon: <Users className="h-5 w-5 text-rose-500 mt-1" />,
-                  title: 'Ceguera de métricas para Dirección',
-                  desc: 'El Gerente no tiene datos reales sobre cuántos presupuestos de obra hay presentados en total, qué tasa de efectividad posee cada vendedor o cuántas ventas se cerrarán para la próxima siembra.'
+                  title: 'Gerencia sin datos',
+                  desc: 'El gerente no sabe cuántos presupuestos hay abiertos, cuántos cierra cada comercial ni qué ventas se esperan para la próxima campaña.'
                 }
               ].map((item, idx) => (
                 <div key={idx} className="p-4 bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-200/60 rounded-xl flex items-start gap-3">
@@ -350,13 +360,13 @@ export default function App() {
           
           <div className="text-center space-y-3 max-w-2xl mx-auto mb-16">
             <span className="text-xs font-mono font-bold text-harvest-400 uppercase tracking-widest bg-agro-900 border border-agro-800 py-1 px-3 rounded-full">
-              SISTEMA INTEGRAL DE CONTROL COMERCIAL
+              El método
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white font-display">
               El Método AGROFLOW™
             </h2>
             <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-              No implantamos software informático que sus comerciales odien usar. Estructuramos un método de negocio simple que automatiza la retención de clientes en cinco pasos específicos del sector agropecuaria.
+              No se trata de instalar un programa que nadie usa. Es un método sencillo en cinco pasos para que ninguna oportunidad comercial se quede por el camino.
             </p>
           </div>
 
@@ -368,31 +378,31 @@ export default function App() {
               {
                 step: '01',
                 title: 'Atracción',
-                desc: 'Identificamos agricultores y distribuidores cualificados que necesitan maquinaria o insumos en su zona geográfica concreta, canalizando la intención de compra real.',
+                desc: 'Atraemos a agricultores y distribuidores de su zona que de verdad necesitan su maquinaria o sus insumos.',
                 icon: <Sprout className="h-5 w-5 text-harvest-400" />
               },
               {
                 step: '02',
                 title: 'Captación',
-                desc: 'Capturamos solicitudes de presupuestos de forma fluida: formularios móviles adaptados para ferias presenciales o llamadas directas, sin perder ni un solo contacto.',
+                desc: 'Recogemos cada petición de presupuesto, venga de la web, de una feria, de una llamada o de WhatsApp.',
                 icon: <CheckSquare className="h-5 w-5 text-harvest-400" />
               },
               {
                 step: '03',
                 title: 'Organización',
-                desc: 'El contacto entra directo al sistema, se asocia a la cartera de la empresa y se asigna automáticamente al comercial de la provincia por GPS o línea de producto.',
+                desc: 'Cada contacto entra en un registro único de la empresa y se asigna al comercial de su zona o de su línea de producto.',
                 icon: <Layers className="h-5 w-5 text-harvest-400" />
               },
               {
                 step: '04',
                 title: 'Automatización',
-                desc: 'El sistema asiste de forma inteligente: programa llamadas rutinarias, recuerda vigencias de tarifas de abono o maquinaria y detecta cotizaciones inactivas.',
+                desc: 'Recordatorios de llamada, avisos de ofertas a punto de caducar y detección de presupuestos parados, con ayuda de la IA.',
                 icon: <Sparkles className="h-5 w-5 text-harvest-400" />
               },
               {
                 step: '05',
                 title: 'Conversión',
-                desc: 'Control total de cierres y facturación. El comercial se enfoca en cooperativas precalificadas y la dirección obtiene métricas de rentabilidad por primera vez.',
+                desc: 'El comercial se centra en las oportunidades con más opciones y la gerencia ve qué se cierra y qué no.',
                 icon: <Award className="h-5 w-5 text-harvest-400" />
               }
             ].map((phase, idx) => (
@@ -413,10 +423,10 @@ export default function App() {
 
           <div className="mt-16 bg-slate-900/90 border border-slate-800 p-6 md:p-8 rounded-2xl max-w-5xl mx-auto space-y-6">
             <div className="text-center space-y-2">
-              <span className="text-[10px] text-harvest-400 font-mono uppercase tracking-wider block font-bold">Demostración Visual Interactiva</span>
+              <span className="text-[10px] text-harvest-400 font-mono uppercase tracking-wider block font-bold">Demostración con datos de ejemplo</span>
               <h3 className="text-lg md:text-xl font-bold font-display text-white">Pruebe el Panel Comercial AGROFLOW™</h3>
               <p className="text-xs text-slate-400 max-w-xl mx-auto">
-                Pulse el botón de seguimiento automático para simular cómo evitamos el olvido y fugas en su red comercial.
+                Pulse el botón de seguimiento automático para ver cómo cambia un panel comercial cuando ningún presupuesto se olvida. Los datos son de ejemplo.
               </p>
             </div>
             <AgroflowDashboardPreview />
@@ -431,13 +441,13 @@ export default function App() {
           
           <div className="text-center space-y-3 max-w-2xl mx-auto mb-16">
             <span className="text-xs font-mono font-bold text-agro-700 bg-agro-100 px-3 py-1 rounded-full uppercase tracking-wider inline-block">
-              Beneficios Basados en Resultados Reales
+              Beneficios
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 font-display">
               Venda más sobre el terreno sin perder el control de su oficina
             </h2>
             <p className="text-slate-650 text-sm md:text-base max-w-lg mx-auto leading-relaxed">
-              No nos importa la tecnología por sí misma. Lo que cambia su negocio son estos cinco resultados concretos desde el primer mes de implantación.
+              La tecnología es solo el medio. Lo que importa es lo que cambia en su día a día comercial.
             </p>
           </div>
 
@@ -465,9 +475,9 @@ export default function App() {
                 <ShieldCheck className="h-6 w-6" />
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-slate-800">Sello de Cumplimiento Agro-Industrial</h4>
+                <h4 className="text-sm font-bold text-slate-800">Sus datos, siempre suyos</h4>
                 <p className="text-xs text-slate-500 leading-relaxed max-w-xl">
-                  Nuestros sistemas cuentan con los estándares de seguridad necesarios para cumplir con normativas de cooperativas españolas y protección de marcas de fertilizantes autorizados por el MAPA.
+                  La información de sus clientes queda en herramientas a nombre de su empresa y se trata conforme al RGPD. Si un día deja de trabajar con nosotros, todo sigue siendo suyo.
                 </p>
               </div>
             </div>
@@ -488,13 +498,13 @@ export default function App() {
           
           <div className="text-center space-y-3 max-w-2xl mx-auto mb-16">
             <span className="text-xs font-mono font-bold text-agro-700 bg-agro-100 px-3 py-1 rounded-full uppercase tracking-wider inline-block">
-              Experiencia Sectorial Concreta
+              Ejemplos ilustrativos
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 font-display">
-              Especialistas en su tipo de Operación Comercial
+              Situaciones habituales en el sector
             </h2>
             <p className="text-slate-650 text-sm md:text-base leading-relaxed">
-              No deforma su forma de vender para encajar en un software. Adaptamos el sistema según si usted fabrica, distribuye o instala. Elija su especialidad para conocer un caso de uso real:
+              El sistema se adapta a su forma de vender, según fabrique, distribuya o instale. Elija su sector para ver un ejemplo de cómo se aplica (situaciones tipo, no casos de clientes concretos):
             </p>
           </div>
 
@@ -543,19 +553,19 @@ export default function App() {
                           <h3 className="text-xl font-bold font-display text-slate-900 mt-1">{cs.companyType}</h3>
                         </div>
                         <div className="bg-rose-50 border border-rose-100 p-2.5 rounded-lg text-rose-700 text-xs font-mono">
-                          <span className="font-bold block uppercase tracking-wider text-[9px] text-rose-600 mb-0.5">La Fuga Común:</span>
+                          <span className="font-bold block uppercase tracking-wider text-[9px] text-rose-600 mb-0.5">Dónde se pierden ventas:</span>
                           <span>{cs.leak}</span>
                         </div>
                       </div>
 
                       <div className="space-y-4">
                         <div>
-                          <h4 className="text-xs font-bold font-mono tracking-wider text-slate-400 uppercase">La Situación Inicial:</h4>
+                          <h4 className="text-xs font-bold font-mono tracking-wider text-slate-400 uppercase">La situación:</h4>
                           <p className="text-xs text-slate-650 leading-relaxed mt-1">{cs.scenario}</p>
                         </div>
 
                         <div>
-                          <h4 className="text-xs font-bold font-mono tracking-wider text-slate-400 uppercase">La Solución AGROFLOW™:</h4>
+                          <h4 className="text-xs font-bold font-mono tracking-wider text-slate-400 uppercase">Cómo lo resuelve AGROFLOW™:</h4>
                           <p className="text-xs text-slate-650 leading-relaxed mt-1">{cs.agroflowImpact}</p>
                         </div>
                       </div>
@@ -565,7 +575,7 @@ export default function App() {
                           ✓
                         </div>
                         <div>
-                          <span className="text-[10px] text-emerald-800 font-bold uppercase tracking-wider block">El Impacto en Facturación</span>
+                          <span className="text-[10px] text-emerald-800 font-bold uppercase tracking-wider block">Resultado esperado</span>
                           <p className="text-xs font-bold text-slate-800 leading-normal">{cs.highlight}</p>
                         </div>
                       </div>
@@ -585,13 +595,13 @@ export default function App() {
           
           <div className="text-center space-y-3 max-w-2xl mx-auto mb-16">
             <span className="text-xs font-mono font-bold text-agro-700 bg-agro-100 px-3 py-1 rounded-full uppercase tracking-wider inline-block">
-              Hoja de Ruta de Conversión
+              Paso a paso
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 font-display">
               ¿Cómo funciona el Diagnóstico Comercial Agro?
             </h2>
             <p className="text-slate-650 text-sm md:text-base leading-relaxed">
-              No queremos que pierda el tiempo. Diseñamos un proceso ágil en 4 fases donde su única tarea es explicarnos cómo atienden hoy el campo. El resto lo calculamos nosotros.
+              Un proceso sencillo en 4 pasos. Usted nos cuenta cómo trabaja hoy su equipo comercial y nosotros preparamos el análisis.
             </p>
           </div>
 
@@ -599,27 +609,27 @@ export default function App() {
             {[
               {
                 step: 'Paso 1',
-                title: 'Solicitud del Test',
-                desc: 'Rellena el autodiagnóstico de abajo. El fundador (Ingeniero Agrónomo) analizará directamente sus respuestas técnicas.',
+                title: 'Autodiagnóstico',
+                desc: `Responda el autodiagnóstico de abajo. ${TITULAR.nombre}, Ingeniero Agrónomo, revisará personalmente sus respuestas.`,
                 detail: 'Duración: 2 minutos.'
               },
               {
                 step: 'Paso 2',
-                title: 'Reunión Estratégica',
-                desc: 'Hacemos una sesión online o telefónica privada de 30-45 minutos analizando de verdad su organización actual y plantillas.',
+                title: 'Reunión de diagnóstico',
+                desc: 'Una sesión online o por teléfono de 30-45 minutos para revisar cómo se gestionan hoy sus presupuestos y contactos.',
                 detail: 'Sin coste ni compromiso.'
               },
               {
                 step: 'Paso 3',
-                title: 'Identificación de Fugas',
-                desc: 'Localizamos en qué puntos de su proceso comercial agrario se están perdiendo el 80% de las oportunidades de repuesto o abono.',
-                detail: 'Datos objetivos del negocio.'
+                title: 'Dónde se pierden ventas',
+                desc: 'Localizamos en qué momentos de su proceso comercial se pierden más oportunidades.',
+                detail: 'Con datos de su propia empresa.'
               },
               {
                 step: 'Paso 4',
-                title: 'Plan de Acción',
-                desc: 'Le enviamos por escrito una guía de implementación simplificada para que sus comerciales dejen de perder cotizaciones.',
-                detail: 'Listo para aplicar de inmediato.'
+                title: 'Plan de acción',
+                desc: 'Le enviamos por escrito un plan sencillo para que su equipo deje de perder presupuestos.',
+                detail: 'Para aplicarlo con o sin nosotros.'
               }
             ].map((step, idx) => (
               <div key={idx} className="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-sm space-y-4 relative flex flex-col justify-between">
@@ -646,13 +656,13 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center space-y-3 mb-12">
             <span className="text-xs font-mono font-bold text-harvest-600 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full uppercase tracking-wider inline-block">
-              Área de Registro Oficial
+              Diagnóstico Comercial Agro Gratuito
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 font-display">
-              Obtenga su Diagnóstico Comercial de 30-45 min
+              Solicite su diagnóstico de 30-45 minutos
             </h2>
             <p className="text-slate-650 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-              Consiga su autoevaluación comercial de forma preliminar en la interfaz inteligente y agende su llamada técnica con el equipo fundador.
+              Haga el autodiagnóstico en 2 minutos y solicite su sesión con {TITULAR.nombre}.
             </p>
           </div>
 
@@ -660,58 +670,6 @@ export default function App() {
             initialEstimatedLostRevenue={estimatedLostCost} 
             onSubmitSuccess={handleLeadSuccess} 
           />
-        </div>
-      </section>
-
-      {/* 10. SOBRE EL FUNDADOR */}
-      <section id="fundador" className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-md grid grid-cols-1 md:grid-cols-12 gap-8 p-6 md:p-10 items-center">
-            
-            {/* Founder Avatar info */}
-            <div className="md:col-span-4 text-center space-y-4">
-              <div className="relative inline-block">
-                <div className="w-32 h-32 md:w-40 md:h-40 bg-agro-100 rounded-full overflow-hidden mx-auto border-4 border-agro-900 shadow-md">
-                  <img 
-                    src="https://picsum.photos/seed/agronomo/320/320" 
-                    alt="Fundador - Ingeniero Agrónomo" 
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <div className="absolute -bottom-2 -right-2 bg-harvest-500 text-agro-950 px-2.5 py-0.5 rounded-full text-[10px] font-bold font-mono shadow border border-white">
-                  Ing. Agrónomo
-                </div>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-base text-slate-800">Jaime Toledo</h3>
-                <p className="text-xs text-slate-500 font-mono">Fundador - AGROFLOW™</p>
-                <p className="text-[11px] text-slate-400 mt-1">Especializado en Automatización Comercial</p>
-              </div>
-            </div>
-
-            {/* Founder background letter */}
-            <div className="md:col-span-8 space-y-4">
-              <span className="text-xs font-mono font-bold text-agro-800 uppercase tracking-wider block">
-                CARTA INTEGRAL DEL INGENIERO COMERCIAL
-              </span>
-              <h4 className="text-xl font-bold font-display text-slate-900 leading-tight">
-                «Entendemos el valor de la palabra en el campo español. No vendemos fantasías informáticas.»
-              </h4>
-              <p className="text-xs text-slate-650 leading-relaxed space-y-2">
-                Como Ingeniero Agrónomo, he pasado muchisimas jornadas visitando almacenes agricultores, cooperativas andaluzas y distribuidores de repuestos de tractores en Castilla. He visto cómo comerciales brillantes perdían ventas de 60.000€ simplemente por apuntar el teléfono del agricultor en una caja de cartón de abono mojada.
-              </p>
-              <p className="text-xs text-slate-650 leading-relaxed">
-                Nací para resolver eso. En el sector agrícola español, la confianza se fragua con el trato humano, pero se consolida con la puntualidad y el servicio serio. AGROFLOW™ no viene a cambiar cómo habla usted con sus clientes habituales. Viene a recordarle de forma rigurosa cuándo llamarlos para que ningún presupuesto quede en el tintero.
-              </p>
-              <div className="pt-2 flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-agro-600" />
-                <span className="text-[10px] text-slate-500 font-bold font-mono">CONFIDENCIALIDAD TÉCNICA E INDUSTRIAL GARANTIZADA</span>
-              </div>
-            </div>
-
-          </div>
         </div>
       </section>
 
@@ -777,15 +735,15 @@ export default function App() {
         <div className="max-w-4xl mx-auto relative z-10 text-center space-y-8">
           <div className="inline-flex items-center gap-1 bg-harvest-500/15 border border-harvest-400/20 px-3 py-1 rounded-full text-xs text-harvest-400 font-mono">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Cupo Mensual Limitado a 8 Diagnósticos Gratuitos</span>
+            <span>Diagnóstico gratuito y sin compromiso</span>
           </div>
 
           <div className="space-y-4">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight font-display text-white">
-              ¿Seguirá confiando las ventas a la memoria o prefiere el control real?
+              ¿Sus ventas dependen de la memoria de su equipo?
             </h2>
             <p className="text-slate-300 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              Evite las fugas comerciales de maquinaria o biofertilizantes en la actual campaña. Reserve su Diagnóstico Comercial Gratuito de 30-45 minutos con un Ingeniero Agrónomo y empiece a proteger su base de datos.
+              Reserve su Diagnóstico Comercial Agro Gratuito de 30-45 minutos con {TITULAR.nombre}, Ingeniero Agrónomo, y descubra dónde se le escapan las oportunidades esta campaña.
             </p>
           </div>
 
@@ -794,25 +752,27 @@ export default function App() {
               onClick={() => scrollToSection('autodiagnostico')}
               className="w-full sm:w-auto bg-harvest-500 hover:bg-harvest-600 text-agro-950 font-bold px-8 py-4 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 cursor-pointer text-sm"
             >
-              Solicitar Diagnóstico Comercial Ahora
+              Solicitar Diagnóstico Gratuito
             </button>
-            <button
-              onClick={() => scrollToSection('calculadora')}
-              className="w-full sm:w-auto bg-agro-905 hover:bg-agro-800 border border-agro-700 hover:border-agro-600 text-slate-250 font-semibold px-6 py-4 rounded-xl transition-all cursor-pointer text-sm"
+            <a
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto bg-agro-800 hover:bg-agro-750 border border-agro-700 hover:border-agro-600 text-white font-semibold px-6 py-4 rounded-xl transition-all text-sm text-center"
             >
-              Recalcular Fuga Comercial
-            </button>
+              Escribir por WhatsApp ({TITULAR.telefono})
+            </a>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-xs text-slate-400 font-mono">
             <span className="flex items-center gap-1">
-              <ShieldCheck className="h-4 w-4 text-harvest-400" /> Sin Contratos de Permanencia
+              <ShieldCheck className="h-4 w-4 text-harvest-400" /> Sin compromiso
             </span>
             <span className="flex items-center gap-1">
-              <Calendar className="h-4 w-4 text-harvest-400" /> Confirmación Directo en 24h
+              <Calendar className="h-4 w-4 text-harvest-400" /> Respuesta en 24 h laborables
             </span>
             <span className="flex items-center gap-1">
-              <UserCheck className="h-4 w-4 text-harvest-400" /> Garantía de Confidencialidad
+              <UserCheck className="h-4 w-4 text-harvest-400" /> Confidencialidad
             </span>
           </div>
         </div>
@@ -826,8 +786,13 @@ export default function App() {
             <span className="font-extrabold text-lg text-white font-display uppercase tracking-tight">
               AGROFLOW<span className="text-agro-500 font-bold">™</span>
             </span>
-            <p className="text-xs text-slate-400 leading-relaxed max-w-xs">
-              Sistemas de optimización comercial, censo y seguimiento automatizado especializado en fabricantes, ingenierías e importadores del agro español.
+            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
+              Sistemas de captación, seguimiento, automatización e IA para empresas agrícolas en España. Por {TITULAR.nombre}, Ingeniero Agrónomo.
+            </p>
+            <p className="text-xs text-slate-400">
+              <a href={`mailto:${TITULAR.email}`} className="hover:text-white">{TITULAR.email}</a>
+              <span className="mx-2">·</span>
+              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp {TITULAR.telefono}</a>
             </p>
           </div>
 
@@ -841,6 +806,8 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      <WhatsAppButton />
     </div>
   );
 }

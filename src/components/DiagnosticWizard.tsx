@@ -416,7 +416,7 @@ export default function DiagnosticWizard({ initialEstimatedLostRevenue, onSubmit
                         </div>
                         <div>
                           <label className="block text-xs font-bold text-slate-600 mb-1">
-                            Correo Coporativo *
+                            Correo corporativo *
                           </label>
                           <input
                             type="email"
@@ -534,11 +534,11 @@ export default function DiagnosticWizard({ initialEstimatedLostRevenue, onSubmit
                       Hola <strong>{name}</strong>, hemos registrado su autoevaluación comercial de la empresa <strong>{company}</strong> con una puntuación de ({scoreSum}/{maxScore}).
                     </p>
                     <p className="text-slate-600 max-w-lg mx-auto text-sm">
-                      Nuestro Ingeniero Agrónomo fundador analizará sus respuestas y le contactará en menos de 24 horas laborables al teléfono <strong>{phone}</strong> (o al correo {email}) para concretar el día y la hora de la videollamada de diagnóstico.
+                      {TITULAR.nombre}, Ingeniero Agrónomo, revisará sus respuestas y le contactará en menos de 24 horas laborables al teléfono <strong>{phone}</strong> (o al correo {email}) para concretar el día y la hora de la videollamada de diagnóstico.
                     </p>
                   </div>
                   <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl max-w-sm mx-auto text-xs text-slate-500">
-                    <span className="font-bold text-slate-700 uppercase block mb-1">¿Qué preparará el fundador para la llamada?</span>
+                    <span className="font-bold text-slate-700 uppercase block mb-1">¿Qué preparará Maykel para la llamada?</span>
                     <ul className="list-disc list-inside space-y-1 text-left">
                       <li>Un mapa inicial de su red de captación según su sector ({sector}).</li>
                       <li>Simulaciones comerciales de cómo reducir el papeleo administrativo de su plantilla comercial.</li>

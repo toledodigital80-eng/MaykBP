@@ -174,7 +174,7 @@ export default function AgroflowDashboardPreview() {
                   className="border-l-2 border-emerald-500 pl-3 py-0.5 space-y-1"
                 >
                   <div className="flex justify-between text-[10px] text-slate-400 font-mono">
-                    <span>Sistemas Riego Ebro</span>
+                    <span>Instaladora de riego (ejemplo)</span>
                     <span>Hace 24 min</span>
                   </div>
                   <p className="text-slate-200 font-medium">Llamada agendada automáticamente en el calendario comercial para oferta técnica de 45.000€.</p>
@@ -185,7 +185,7 @@ export default function AgroflowDashboardPreview() {
               ) : (
                 <div className="border-l-2 border-rose-500 pl-3 py-0.5 space-y-1">
                   <div className="flex justify-between text-[10px] text-rose-400 font-mono">
-                    <span>Sistemas Riego Ebro</span>
+                    <span>Instaladora de riego (ejemplo)</span>
                     <span>Ayer</span>
                   </div>
                   <p className="text-slate-300 font-medium">Presupuesto inactivo desde hace 8 días.</p>
@@ -197,7 +197,7 @@ export default function AgroflowDashboardPreview() {
 
               <div className="border-l-2 border-slate-700 pl-3 py-0.5 space-y-1">
                 <div className="flex justify-between text-[10px] text-slate-400 font-mono">
-                  <span>Tractores Castelar</span>
+                  <span>Concesionario de tractores (ejemplo)</span>
                   <span>Hace 2 horas</span>
                 </div>
                 <p className="text-slate-200 font-medium">Nueva solicitud desde formulario web "Feria FIMA Zaragoza" registrada.</p>

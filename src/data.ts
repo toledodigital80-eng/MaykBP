@@ -3,33 +3,33 @@ import { Benefit, CaseStudy, FAQ } from './types';
 export const BENEFITS: Benefit[] = [
   {
     id: 'b1',
-    title: 'Cero Pérdidas de Contactos',
+    title: 'Ningún contacto se pierde',
     description: 'Cada consulta de agricultores, distribuidores o cooperativas se registra automáticamente en una base de datos segura de la empresa, sin depender del bloc de notas de un vendedor o de un chat de WhatsApp personal.',
-    outcome: 'El 100% de los interesados son atendidos bajo un estándar profesional.'
+    outcome: 'Cada interesado recibe respuesta y queda registrado en la empresa.'
   },
   {
     id: 'b2',
-    title: 'Seguimiento con Precisión Quirúrgica',
-    description: 'Sistemas que recuerdan y automatizan los recordatorios de ofertas técnicas enviadas, garantizando que ninguna propuesta comercial de maquinaria, biofertilizantes o riego se quede sin respuesta por falta de tiempo.',
-    outcome: 'Aumento inmediato en la tasa de cierre sin sobrecargar a su equipo.'
+    title: 'Seguimiento de cada presupuesto',
+    description: 'Recordatorios automáticos para cada oferta enviada, de modo que ningún presupuesto de maquinaria, biofertilizantes o riego se quede sin llamada por falta de tiempo.',
+    outcome: 'Más presupuestos cerrados sin cargar más trabajo al equipo.'
   },
   {
     id: 'b3',
-    title: 'Control Absoluto de su Red Comercial',
-    description: 'Sepa exactamente qué está haciendo cada agente de ventas, en qué fase se encuentran los presupuestos más importantes y cuánto va a facturar el próximo mes, con un panel visual simple e intuitivo.',
-    outcome: 'Elimina la incertidumbre y permite tomar decisiones basadas en números reales.'
+    title: 'Visión clara de su red comercial',
+    description: 'Vea en un panel sencillo qué presupuestos están abiertos, en qué fase está cada uno y qué ventas se esperan para el próximo mes.',
+    outcome: 'Decisiones basadas en datos de su propia empresa, no en intuiciones.'
   },
   {
     id: 'b4',
-    title: 'Automatización de Tareas Repetitivas',
-    description: 'Liberamos a sus comerciales de redactar correos manuales rutinarios, agendar reuniones por WhatsApp o rellenar tediosas hojas de cálculo, para que se enfoquen en lo que mejor saben hacer: negociar y vender sobre el terreno.',
-    outcome: 'Hasta un 35% más de tiempo de venta efectiva por comercial.'
+    title: 'Menos tareas repetitivas',
+    description: 'Sus comerciales dejan de redactar correos rutinarios, agendar a mano por WhatsApp o pasar datos entre hojas de cálculo, y dedican ese tiempo a visitar y vender.',
+    outcome: 'Más horas de venta en el campo y menos en la oficina.'
   },
   {
     id: 'b5',
-    title: 'Planificación Estratégica Adaptada al Agro',
-    description: 'Entendemos los ciclos de la siembra, las campañas de fitosanitarios y los tiempos de maduración en la compra de maquinaria. El sistema se parametriza de acuerdo a la estacionalidad de sus productos.',
-    outcome: 'Interacciones comerciales en el momento idóneo de la campaña.'
+    title: 'Adaptado a las campañas del agro',
+    description: 'Tenemos en cuenta los ciclos de siembra, las campañas de fitosanitarios y los plazos de decisión en la compra de maquinaria. El sistema se ajusta a la estacionalidad de sus productos.',
+    outcome: 'Cada contacto llega en el momento adecuado de la campaña.'
   }
 ];
 
@@ -38,28 +38,28 @@ export const CASE_STUDIES: CaseStudy[] = [
     id: 'c1',
     sector: 'Maquinaria Agrícola',
     companyType: 'Distribuidor e Importador de Equipamiento',
-    scenario: 'Los comerciales capturaban solicitudes en ferias del sector y las apuntaban en cuadernos. Si un cliente pedía presupuesto para un tractor o apero, la oferta tardaba 10 días en enviarse por falta de información fluida, y un 40% de los contactos nunca recibían llamada de seguimiento.',
-    leak: 'Fuga estimada de 8 oportunidades de venta de alta gama al año por valor de más de 250.000€.',
-    agroflowImpact: 'Centralización de captación en ferias mediante tabletas, asignación inmediata al comercial de zona y generación de alertas automáticas de seguimiento de presupuesto al 3º y 7º día.',
-    highlight: 'Reducción del tiempo de respuesta a 24 horas y rescate de 5 ventas de maquinaria en las primeras dos campañas.'
+    scenario: 'Imagine un distribuidor que recoge contactos en ferias y los apunta en libretas. Cuando un agricultor pide presupuesto de un tractor o un apero, la oferta tarda días en salir y muchos contactos nunca reciben una llamada de seguimiento.',
+    leak: 'Presupuestos de alto importe que se enfrían y acaban comprando a la competencia.',
+    agroflowImpact: 'Registro de contactos en la propia feria desde el móvil, asignación inmediata al comercial de zona y avisos automáticos para llamar a los 3 y a los 7 días de enviar el presupuesto.',
+    highlight: 'Respuestas más rápidas y ningún presupuesto sin llamada de seguimiento.'
   },
   {
     id: 'c2',
     sector: 'Nutrición y Biofertilizantes',
     companyType: 'Fabricante de Bioestimulantes y Micronutrientes',
-    scenario: 'Dependían al 100% de la relación personal de los delegados agrícolas con los distribuidores de zona. Cuando un delegado cambiaba de empresa, se llevaba consigo toda la cartera y la información de los ensayos en campo debido a que toda la historia comercial estaba en su WhatsApp personal.',
+    scenario: 'Imagine un fabricante cuyas ventas dependen de la relación personal de cada delegado con los distribuidores. Si un delegado se marcha, se lleva la cartera y los resultados de los ensayos en campo, porque todo estaba en su WhatsApp personal.',
     leak: 'Pérdida de cuentas históricas y falta de trazabilidad en las pruebas de producto que demuestran la eficacia técnica.',
-    agroflowImpact: 'Digitalización y registro sistemático de cada visita a cooperativas y fincas. Integración de los resultados de ensayos directamente en el expediente del cliente accesible para todo el equipo técnico-comercial.',
-    highlight: 'Control total de la propiedad del cliente por la empresa, incrementando un 18% la recompra al asegurar la continuidad en el servicio.'
+    agroflowImpact: 'Registro de cada visita a cooperativas y fincas, con los resultados de los ensayos en la ficha del cliente y accesibles para todo el equipo técnico-comercial.',
+    highlight: 'Los clientes y su historial son de la empresa, y el servicio continúa aunque cambie el delegado.'
   },
   {
     id: 'c3',
     sector: 'Sistemas de Riego y Fitosanitarios',
     companyType: 'Instaladora y Distribuidora Hortofrutícola',
-    scenario: 'Las peticiones de presupuesto web o llamadas a la oficina se derivaban por correo electrónico a los ingenieros comerciales. Nadie controlaba si esos correos se contestaban o si el presupuesto era aceptado o rechazado. El gerente desconocía la efectividad de sus esfuerzos comerciales.',
-    leak: 'Un 55% de los presupuestos de proyectos de riego quedaban en el limbo sin ningún tipo de acción posterior por sobrecarga de trabajo técnico.',
-    agroflowImpact: 'Creación de un pipeline visual comercial. Alerta automática al comercial si una oferta de proyecto técnico supera los 5 días sin interacción y panel resumen mensual para gerencia.',
-    highlight: 'Aumento del 22% en la facturación total al reactivar presupuestos que el cliente simplemente había olvidado.'
+    scenario: 'Imagine una instaladora que reenvía por correo las peticiones de presupuesto de la web y del teléfono a sus técnicos. Nadie controla si se contestan ni si el presupuesto se acepta o se rechaza, y la gerencia no sabe qué está funcionando.',
+    leak: 'Proyectos de riego presupuestados que se quedan en el aire por sobrecarga de trabajo técnico.',
+    agroflowImpact: 'Un panel con todos los presupuestos por fases, aviso automático al técnico si una oferta pasa 5 días sin respuesta y resumen mensual para gerencia.',
+    highlight: 'Presupuestos olvidados que vuelven a moverse y gerencia con datos para decidir.'
   }
 ];
 
@@ -72,12 +72,12 @@ export const FAQS: FAQ[] = [
   {
     id: 'f2',
     question: '«Ya gastamos dinero en hacer una página web y no nos entran ventas por ahí. ¿Esto funcionará realmente?»',
-    answer: 'Una página web típica es como un folleto digital pasivo. No genera ventas por sí sola. AGROFLOW™ no vende páginas web, sino sistemas comerciales activos de captación y seguimiento. Capturamos la necesidad del agricultor o técnico de campo y la canalizamos inmediatamente en un proceso comercial automatizado para llamar, asesorar y cerrar la venta de inmediato.'
+    answer: 'Una web por sí sola es como un folleto: no vende si nadie atiende lo que entra. AGROFLOW™ no vende páginas web, sino sistemas de captación y seguimiento. Cada consulta del agricultor o del técnico entra en un proceso ordenado para llamar, asesorar y cerrar la venta a tiempo.'
   },
   {
     id: 'f3',
     question: '«Nuestros comerciales pasan el día en la carretera y no tienen tiempo para rellenar datos técnicos»',
-    answer: 'Precisamente por eso AGROFLOW™ está pensado para ser extremadamente simple. Su equipo comercial no tendrá que rellenar sistemas complejos de informática. El sistema automatiza el registro de llamadas, permite dictar notas de voz rápidas desde el móvil en la linde del campo y envía recordatorios para que ellos solo tengan que pulsar "Aceptar". Eliminamos la burocracia para que pasen más horas negociando.'
+    answer: 'Precisamente por eso AGROFLOW™ está pensado para ser extremadamente simple. Su equipo no tendrá que rellenar programas complicados. Puede dejar notas de voz desde el móvil en la misma finca y recibe recordatorios en los que solo tiene que confirmar. Eliminamos la burocracia para que pasen más horas negociando.'
   },
   {
     id: 'f4',
@@ -86,8 +86,8 @@ export const FAQS: FAQ[] = [
   },
   {
     id: 'f5',
-    question: '«¿Este diagnóstico gratuito de verdad es útil o es una sesión de venta agresiva?»',
-    answer: 'No creemos en la venta agresiva y menos en el sector agrícola, donde la reputación y la palabra lo son todo. El diagnóstico comercial de 30-45 minutos es una sesión técnica realista. Analizamos su proceso actual de captación, cómo realizan el seguimiento de presupuestos y dónde están perdiendo operaciones comerciales concretas. Al finalizar la videollamada, le entregaremos un mapa de oportunidades comercial sencillo. Si decide aplicarlo con AGROFLOW™, excelente. Si prefiere implementarlo usted mismo con su equipo, lo hará con una hoja de ruta clara.'
+    question: '«¿El diagnóstico gratuito es útil de verdad o es una sesión de venta?»',
+    answer: 'No creemos en la venta agresiva y menos en el sector agrícola, donde la reputación y la palabra lo son todo. En el diagnóstico de 30-45 minutos, Maykel Espinosa Toledo revisa con usted su proceso comercial real. Analizamos su proceso actual de captación, cómo realizan el seguimiento de presupuestos y dónde están perdiendo operaciones comerciales concretas. Al terminar, le enviamos un mapa sencillo con las oportunidades de mejora. Si decide aplicarlo con AGROFLOW™, excelente. Si prefiere implementarlo usted mismo con su equipo, lo hará con una hoja de ruta clara.'
   }
 ];
 
